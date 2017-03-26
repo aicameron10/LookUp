@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">LookUp</string>
+    <string name="title_shop">Shop</string>
+    <string name="title_cart">Cart</string>
+    <string name="title_list">Lists</string>
+    <string name="openDrawer">Open navigation drawer</string>
+    <string name="closeDrawer">Close navigation drawer</string>
+    <string name="backdrop_title">Daily Deals</string>
+    <string name="backdrop_subtitle">The Best prices Everyday!</string>
+    <string name="action_add_wish_list">Add to Wish List</string>
+    <string name="action_add_cart">Add to Cart</string>
+    <string name="action_settings">Settings</string>
+    <string name="lookUp">LookUp</string>
+    <string name="review_name">Full Name</string>
+    <string name="review_desc">Review Description</string>
+    <string name="review_title">Review Title</string>
+    <string name="review_email">Email</string>
+    <string name="review_rate">Your Rating</string>
+    <string name="err_msg_name">Please enter a full name</string>
+    <string name="err_msg_review">Please enter a review description</string>
+    <string name="err_msg_title">Please enter a review title</string>
+    <string name="err_msg_email">Please enter a email address</string>
+    <string name="err_msg_email_valid">Please enter a valid email</string>
+
+</resources>
