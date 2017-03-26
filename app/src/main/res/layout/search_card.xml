@@ -20,7 +20,8 @@
                 android:id="@+id/thumbnail"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/card_cover_height"
-                android:background="?attr/selectableItemBackgroundBorderless"
+                android:layout_margin="10dp"
+                android:background="@drawable/no_image"
                 android:clickable="true"
                 android:scaleType="fitXY"
                 android:src="@drawable/no_image" />
@@ -44,6 +45,7 @@
                 android:paddingBottom="@dimen/count_padding_bottom"
                 android:paddingLeft="@dimen/card_title_padding"
                 android:paddingRight="@dimen/card_title_padding"
+                android:textColor="@color/red"
                 android:textSize="@dimen/count" />
 
             <ImageView

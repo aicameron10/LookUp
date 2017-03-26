@@ -5,9 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -22,12 +20,10 @@ import com.bol.lookup.R;
 import com.bol.lookup.activities.MainActivity;
 import com.bol.lookup.activities.ReviewActivity;
 import com.bol.lookup.adapters.ReviewsAdapter;
-import com.bol.lookup.adapters.SearchAdapter;
 import com.bol.lookup.model.Count;
 import com.bol.lookup.model.NavItem;
 import com.bol.lookup.model.Review;
 import com.bol.lookup.model.ReviewsResponse;
-import com.bol.lookup.model.SearchProducts;
 import com.bol.lookup.rest.ApiClientReviews;
 import com.bol.lookup.rest.ApiInterfaceReviews;
 
@@ -108,29 +104,23 @@ public class ReviewFragmentTab extends Fragment {
 
         recyclerView = (RecyclerView) rootView.findViewById(R.id.reviews_recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener()
-        {
+        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
-            public void onScrolled(RecyclerView recyclerView, int dx, int dy)
-            {
-                if (dy > 0 ||dy<0 && fab.isShown())
-                {
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                if (dy > 0 || dy < 0 && fab.isShown()) {
                     fab.hide();
                 }
             }
 
             @Override
-            public void onScrollStateChanged(RecyclerView recyclerView, int newState)
-            {
-                if (newState == RecyclerView.SCROLL_STATE_IDLE)
-                {
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                if (newState == RecyclerView.SCROLL_STATE_IDLE) {
                     fab.show();
                 }
 
                 super.onScrollStateChanged(recyclerView, newState);
             }
         });
-
 
 
         fetchReviews();
@@ -153,21 +143,28 @@ public class ReviewFragmentTab extends Fragment {
             public void onResponse(Call<ReviewsResponse> call, Response<ReviewsResponse> response) {
                 int statusCode = response.code();
                 List<Review> results = response.body().getReviews();
-                counts = response.body().getCounts();
-                total.setText(Integer.toString(counts.get(0).getTotal()));
-                star1.setText(Integer.toString(counts.get(0).getOnestar()));
-                star2.setText(Integer.toString(counts.get(0).getTwostar()));
-                star3.setText(Integer.toString(counts.get(0).getThreestar()));
-                star4.setText(Integer.toString(counts.get(0).getFourstar()));
-                star5.setText(Integer.toString(counts.get(0).getFivestar()));
-                bar1.setProgress(counts.get(0).getOnestar());
-                bar2.setProgress(counts.get(0).getTwostar());
-                bar3.setProgress(counts.get(0).getThreestar());
-                bar4.setProgress(counts.get(0).getFourstar());
-                bar5.setProgress(counts.get(0).getFivestar());
-
                 adapter = new ReviewsAdapter(results, R.layout.list_item_review, getActivity());
-                recyclerView.setAdapter(adapter);
+                if (!results.isEmpty()) {
+                    counts = response.body().getCounts();
+                    if (!counts.isEmpty()) {
+                        total.setText(Integer.toString(counts.get(0).getTotal()));
+                        star1.setText(Integer.toString(counts.get(0).getOnestar()));
+                        star2.setText(Integer.toString(counts.get(0).getTwostar()));
+                        star3.setText(Integer.toString(counts.get(0).getThreestar()));
+                        star4.setText(Integer.toString(counts.get(0).getFourstar()));
+                        star5.setText(Integer.toString(counts.get(0).getFivestar()));
+                        bar1.setProgress(counts.get(0).getOnestar());
+                        bar2.setProgress(counts.get(0).getTwostar());
+                        bar3.setProgress(counts.get(0).getThreestar());
+                        bar4.setProgress(counts.get(0).getFourstar());
+                        bar5.setProgress(counts.get(0).getFivestar());
+                    } else {
+
+                    }
+
+
+                    recyclerView.setAdapter(adapter);
+                }
             }
 
             @Override

@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.bol.lookup.R;
 import com.bol.lookup.activities.MainActivity;
 import com.bol.lookup.model.SearchProducts;
@@ -61,7 +62,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.MyViewHold
     public void onBindViewHolder(final MyViewHolder holder, int position) {
         final SearchProducts results = searchList.get(position);
         holder.title.setText(results.getTitle());
-        holder.count.setText(results.getTitle());
+        holder.count.setText("$" + String.valueOf(results.getOfferData().getOffers().get(0).getPrice()));
         holder.thumbnail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -69,12 +70,11 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.MyViewHold
                 editor = pref.edit();
                 editor.putString("productId", results.getId());
                 editor.apply();
-                //String itemSelected = selection.getName();
+
                 ((MainActivity) mContext).displayView(1);
 
             }
         });
-
 
 
         // loading album cover using Glide library

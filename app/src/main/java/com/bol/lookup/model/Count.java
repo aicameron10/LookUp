@@ -2,9 +2,6 @@ package com.bol.lookup.model;
 
 import com.google.gson.annotations.SerializedName;
 
-import java.util.ArrayList;
-import java.util.List;
-
 
 public class Count {
     @SerializedName("total")

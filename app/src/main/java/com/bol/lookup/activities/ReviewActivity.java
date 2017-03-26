@@ -2,8 +2,6 @@ package com.bol.lookup.activities;
 
 
 import android.annotation.SuppressLint;
-import android.app.Fragment;
-import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
@@ -15,7 +13,6 @@ import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
@@ -28,14 +25,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bol.lookup.R;
-import com.bol.lookup.adapters.ReviewsAdapter;
-import com.bol.lookup.model.Review;
-import com.bol.lookup.model.ReviewsResponse;
 import com.bol.lookup.model.SendReview;
 import com.bol.lookup.rest.ApiClientReviews;
 import com.bol.lookup.rest.ApiInterfaceReviews;
-
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -79,7 +71,6 @@ public class ReviewActivity extends AppCompatActivity {
             }
         });
 
-        // Login button
         Button submit = (Button) findViewById(R.id.rg_send);
 
         submit.setOnClickListener(new View.OnClickListener() {
@@ -89,6 +80,10 @@ public class ReviewActivity extends AppCompatActivity {
             }
         });
 
+
+        TextView productName = (TextView) findViewById(R.id.productName);
+        productName.setText(pref.getString("productName", ""));
+        productName.setTypeface(null, Typeface.BOLD);
 
         inputLayoutName = (TextInputLayout) findViewById(R.id.input_layout_name);
         inputLayoutReview = (TextInputLayout) findViewById(R.id.input_layout_review);

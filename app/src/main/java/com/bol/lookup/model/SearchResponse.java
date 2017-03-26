@@ -15,7 +15,6 @@ public class SearchResponse {
     private int totalResultSize;
 
 
-
     public Object getOriginalRequest() {
         return originalRequest;
     }

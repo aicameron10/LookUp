@@ -8,7 +8,7 @@ import java.util.List;
  * Created by Andrew Cameron
  */
 
-public class SearchOfferData {
+public class OfferData {
     @SerializedName("bolCom")
     private int bolCom;
     @SerializedName("nonProfessionalSellers")
@@ -16,10 +16,10 @@ public class SearchOfferData {
     @SerializedName("professionalSellers")
     private int professionalSellers;
     @SerializedName("offers")
-    private List<SearchOffers> offers;
+    private List<Offers> offers;
 
 
-    public SearchOfferData(Integer bolCom, Integer nonProfessionalSellers, Integer professionalSellers,List<SearchOffers> offers) {
+    public OfferData(Integer bolCom, Integer nonProfessionalSellers, Integer professionalSellers, List<Offers> offers) {
         this.bolCom = bolCom;
         this.nonProfessionalSellers = nonProfessionalSellers;
         this.professionalSellers = professionalSellers;
@@ -51,11 +51,11 @@ public class SearchOfferData {
         this.professionalSellers = professionalSellers;
     }
 
-    public List<SearchOffers> getOffers() {
+    public List<Offers> getOffers() {
         return offers;
     }
 
-    public void setOffers(List<SearchOffers> offers) {
+    public void setOffers(List<Offers> offers) {
         this.offers = offers;
     }
 

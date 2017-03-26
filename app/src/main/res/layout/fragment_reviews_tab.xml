@@ -10,17 +10,17 @@
         android:id="@+id/appbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fitsSystemWindows="true"
-        android:background="@color/white">
+        android:background="@color/white"
+        android:fitsSystemWindows="true">
 
         <android.support.design.widget.CollapsingToolbarLayout
             android:id="@+id/collapsing_toolbar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:fitsSystemWindows="true"
-            android:layout_marginTop="10dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
+            android:fitsSystemWindows="true"
             app:expandedTitleTextAppearance="@android:color/transparent"
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
@@ -62,8 +62,8 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="1 Star"
-                            android:layout_weight="0.1"/>
+                            android:layout_weight="0.1"
+                            android:text="1 Star" />
 
                         <ProgressBar
                             android:id="@+id/progressBar1"
@@ -71,18 +71,18 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
+                            android:layout_weight="0.8"
                             android:indeterminate="false"
                             android:max="100"
-                            android:progress="10"
-                            android:layout_weight="0.8"/>
+                            android:progress="0" />
 
                         <TextView
                             android:id="@+id/total_1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="3dp"
-                            android:text="Total"
-                            android:layout_weight="0.1"/>
+                            android:layout_weight="0.1"
+                            android:text="0" />
 
                     </LinearLayout>
 
@@ -96,8 +96,8 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="2 Star"
-                            android:layout_weight="0.1"/>
+                            android:layout_weight="0.1"
+                            android:text="2 Star" />
 
                         <ProgressBar
                             android:id="@+id/progressBar2"
@@ -105,18 +105,18 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
+                            android:layout_weight="0.8"
                             android:indeterminate="false"
                             android:max="100"
-                            android:progress="10"
-                            android:layout_weight="0.8"/>
+                            android:progress="0" />
 
                         <TextView
                             android:id="@+id/total_2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="3dp"
-                            android:text="Total"
-                            android:layout_weight="0.1"/>
+                            android:layout_weight="0.1"
+                            android:text="0" />
 
                     </LinearLayout>
 
@@ -129,8 +129,8 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="3 Star"
-                            android:layout_weight="0.1"/>
+                            android:layout_weight="0.1"
+                            android:text="3 Star" />
 
                         <ProgressBar
                             android:id="@+id/progressBar3"
@@ -138,18 +138,18 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
+                            android:layout_weight="0.8"
                             android:indeterminate="false"
                             android:max="100"
-                            android:progress="10"
-                            android:layout_weight="0.8"/>
+                            android:progress="0" />
 
                         <TextView
                             android:id="@+id/total_3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="3dp"
-                            android:text="Total"
-                            android:layout_weight="0.1"/>
+                            android:layout_weight="0.1"
+                            android:text="0" />
 
                     </LinearLayout>
 
@@ -162,8 +162,8 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="4 Star"
-                            android:layout_weight="0.1"/>
+                            android:layout_weight="0.1"
+                            android:text="4 Star" />
 
                         <ProgressBar
                             android:id="@+id/progressBar4"
@@ -171,18 +171,18 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
+                            android:layout_weight="0.8"
                             android:indeterminate="false"
                             android:max="100"
-                            android:progress="10"
-                            android:layout_weight="0.8"/>
+                            android:progress="0" />
 
                         <TextView
                             android:id="@+id/total_4"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="3dp"
-                            android:text="Total"
-                            android:layout_weight="0.1"/>
+                            android:layout_weight="0.1"
+                            android:text="0" />
 
                     </LinearLayout>
 
@@ -195,8 +195,8 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="5 Star"
-                            android:layout_weight="0.1"/>
+                            android:layout_weight="0.1"
+                            android:text="5 Star" />
 
                         <ProgressBar
                             android:id="@+id/progressBar5"
@@ -204,18 +204,18 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
+                            android:layout_weight="0.8"
                             android:indeterminate="false"
                             android:max="100"
-                            android:progress="10"
-                            android:layout_weight="0.8"/>
+                            android:progress="0" />
 
                         <TextView
                             android:id="@+id/total_5"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="3dp"
-                            android:text="Total"
-                            android:layout_weight="0.1"/>
+                            android:layout_weight="0.1"
+                            android:text="0" />
 
                     </LinearLayout>
 

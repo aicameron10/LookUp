@@ -7,7 +7,7 @@ import com.google.gson.annotations.SerializedName;
  * Created by Andrew Cameron
  */
 
-public class SearchOffers {
+public class Offers {
     @SerializedName("id")
     private String id;
     @SerializedName("condition")
@@ -16,15 +16,27 @@ public class SearchOffers {
     private double price;
     @SerializedName("listPrice")
     private double listPrice;
+    @SerializedName("availabilityDescription")
+    private String availabilityDescription;
 
 
-    public SearchOffers(String id, String condition, Double price, Double listPrice) {
+    public Offers(String id, String condition, Double price, Double listPrice, String availabilityDescription) {
         this.id = id;
         this.condition = condition;
         this.price = price;
         this.listPrice = listPrice;
+        this.availabilityDescription = availabilityDescription;
 
     }
+
+    public String getAvailabilityDescription() {
+        return availabilityDescription;
+    }
+
+    public void setAvailabilityDescription(String availabilityDescription) {
+        this.availabilityDescription = availabilityDescription;
+    }
+
 
     public String getId() {
         return id;

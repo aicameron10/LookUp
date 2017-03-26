@@ -16,12 +16,10 @@ public class SearchProducts {
     @SerializedName("images")
     private List<SearchImages> images;
     @SerializedName("offerData")
-    private Object offerData;
+    private OfferData offerData;
 
 
-
-
-    public SearchProducts(String id, String title, List<SearchImages> images, List<SearchOfferData> offerData) {
+    public SearchProducts(String id, String title, List<SearchImages> images, OfferData offerData) {
         this.images = images;
         this.offerData = offerData;
         this.id = id;
@@ -29,13 +27,14 @@ public class SearchProducts {
 
     }
 
-    public Object getOfferData() {
+    public OfferData getOfferData() {
         return offerData;
     }
 
-    public void setOfferData(Object offerData) {
+    public void setOfferData(OfferData offerData) {
         this.offerData = offerData;
     }
+
 
     public String getId() {
         return id;
@@ -60,7 +59,6 @@ public class SearchProducts {
     public void setImages(List<SearchImages> images) {
         this.images = images;
     }
-
 
 
 }

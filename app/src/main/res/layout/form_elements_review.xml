@@ -26,22 +26,32 @@
             android:padding="10dp">
 
             <TextView
+                android:id="@+id/productName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/review_rate"
-                android:id="@+id/text"
                 android:layout_centerHorizontal="true"
-                android:layout_marginBottom="10dp"/>
+                android:layout_marginBottom="10dp"
+                android:text="Product"
+                android:textColor="@color/colorBlack" />
+
+            <TextView
+                android:id="@+id/text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/productName"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="10dp"
+                android:text="@string/review_rate" />
 
             <RatingBar
                 android:id="@+id/rating"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_below="@+id/text"
                 android:layout_centerHorizontal="true"
                 android:numStars="5"
                 android:rating="0"
-                android:stepSize="1"
-                android:layout_below="@+id/text"/>
+                android:stepSize="1" />
 
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/input_layout_name"

@@ -1,8 +1,5 @@
 package com.bol.lookup.fragments;
 
-/**
- * Created by Andrew Cameron
- */
 
 import android.content.res.Resources;
 import android.graphics.Color;
@@ -16,13 +13,13 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -59,7 +56,7 @@ public class HomeFragment extends Fragment {
 
     Boolean isInternetPresent = false;
     ConnectionDetector cd;
-
+    ProgressBar pg;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -86,6 +83,7 @@ public class HomeFragment extends Fragment {
         initCollapsingToolbar();
 
         recyclerView = (RecyclerView) rootView.findViewById(R.id.recycler_view);
+        pg = (ProgressBar) rootView.findViewById(R.id.progressBar);
 
         searchList = new ArrayList<>();
         adapter = new SearchAdapter(getActivity(), searchList);
@@ -98,37 +96,14 @@ public class HomeFragment extends Fragment {
 
 
         try {
-            Glide.with(this).load(R.drawable.deals).into((ImageView) rootView.findViewById(R.id.backdrop));
+            Glide.with(this).load(R.drawable.shops_museum_1).into((ImageView) rootView.findViewById(R.id.backdrop));
         } catch (Exception e) {
             e.printStackTrace();
         }
 
 
-        ApiInterface apiService =
-                ApiClient.getClient().create(ApiInterface.class);
+        fetchSearch();
 
-        Map<String, String> data = new HashMap<>();
-        data.put("apikey", API_KEY);
-        data.put("q", "halo");
-        data.put("format", "json");
-
-        Call<SearchResponse> call = apiService.getSearchResults(data);
-
-
-        call.enqueue(new Callback<SearchResponse>() {
-            @Override
-            public void onResponse(Call<SearchResponse> call, Response<SearchResponse> response) {
-                int statusCode = response.code();
-                List<SearchProducts> results = response.body().getProducts();
-                recyclerView.setAdapter(new SearchAdapter(getActivity(), results));
-            }
-
-            @Override
-            public void onFailure(Call<SearchResponse> call, Throwable t) {
-                // Log error here since request failed
-                Log.e(TAG, t.toString());
-            }
-        });
 
         return rootView;
     }
@@ -163,6 +138,41 @@ public class HomeFragment extends Fragment {
                 }
             }
         });
+    }
+
+
+    private void fetchSearch() {
+
+        pg.setVisibility(View.VISIBLE);
+
+        ApiInterface apiService =
+                ApiClient.getClient().create(ApiInterface.class);
+
+        Map<String, String> data = new HashMap<>();
+        data.put("apikey", API_KEY);
+        data.put("q", "halo");
+        data.put("format", "json");
+
+        Call<SearchResponse> call = apiService.getSearchResults(data);
+
+
+        call.enqueue(new Callback<SearchResponse>() {
+            @Override
+            public void onResponse(Call<SearchResponse> call, Response<SearchResponse> response) {
+                int statusCode = response.code();
+                pg.setVisibility(View.GONE);
+                List<SearchProducts> results = response.body().getProducts();
+                recyclerView.setAdapter(new SearchAdapter(getActivity(), results));
+            }
+
+            @Override
+            public void onFailure(Call<SearchResponse> call, Throwable t) {
+                // Log error here since request failed
+                Log.e(TAG, t.toString());
+            }
+        });
+
+
     }
 
 

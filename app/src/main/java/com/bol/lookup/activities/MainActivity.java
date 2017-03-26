@@ -26,23 +26,18 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bol.lookup.R;
-import com.bol.lookup.fragments.DetailFragmentTab;
 import com.bol.lookup.fragments.HomeFragment;
 import com.bol.lookup.fragments.PagerFragment;
 import com.bol.lookup.fragments.ReviewFragmentTab;
 import com.bol.lookup.model.NavItem;
-import com.bol.lookup.utils.SessionManager;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener{
+        implements NavigationView.OnNavigationItemSelectedListener {
 
     Toolbar toolbar;
     private static long back_pressed;
     DrawerLayout Drawer;
     ActionBarDrawerToggle mDrawerToggle;
-
-    SessionManager session;
-    String url;
 
     SharedPreferences pref;
     SharedPreferences.Editor editor;
@@ -90,9 +85,6 @@ public class MainActivity extends AppCompatActivity
         title.setText(getResources().getString(R.string.lookUp));
         title.setTypeface(face);
 
-        //mTextMessage = (TextView) findViewById(R.id.message);
-       // BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
-        //navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         displayView(0);
         loadDraws();
     }
@@ -172,13 +164,11 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_orderHistory) {
 
-        }
-        else if (id == R.id.nav_account) {
+        } else if (id == R.id.nav_account) {
 
-        }
-        else if (id == R.id.nav_Privacy) {
+        } else if (id == R.id.nav_Privacy) {
 
-        }else if (id == R.id.nav_feedback) {
+        } else if (id == R.id.nav_feedback) {
 
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -192,7 +182,7 @@ public class MainActivity extends AppCompatActivity
 
         MenuInflater inflater = getMenuInflater();
 
-     inflater.inflate(R.menu.main_profile, menu);
+        inflater.inflate(R.menu.main_profile, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -286,7 +276,6 @@ public class MainActivity extends AppCompatActivity
             case "Home":
                 displayView(0);
                 return;
-
 
         }
 

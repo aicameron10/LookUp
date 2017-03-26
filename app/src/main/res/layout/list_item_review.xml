@@ -21,9 +21,9 @@
             android:layout_height="wrap_content"
             android:layout_gravity="top"
             android:paddingRight="16dp"
-            android:textStyle="bold"
             android:textColor="@color/colorBlack"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/review_email"
@@ -31,6 +31,7 @@
             android:layout_height="wrap_content"
             android:paddingRight="16dp"
             android:textColor="@color/colorGreyLight" />
+
         <TextView
             android:id="@+id/review_date"
             android:layout_width="wrap_content"
