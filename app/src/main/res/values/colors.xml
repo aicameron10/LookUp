@@ -23,4 +23,5 @@
     <color name="greennew">#00a859</color>
     <color name="black">#000000</color>
     <color name="lightgrey">#ededed</color>
+    <color name="light">#ededed</color>
 </resources>
