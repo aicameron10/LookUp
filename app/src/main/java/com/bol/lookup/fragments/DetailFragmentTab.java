@@ -192,11 +192,13 @@ public class DetailFragmentTab extends Fragment {
             public void onResponse(Call<DetailResponse> call, Response<DetailResponse> response) {
                 int statusCode = response.code();
                 pg.setVisibility(View.GONE);
-                List<DetailProducts> results = response.body().getProducts();
-                if (!results.isEmpty()) {
-                    images = results.get(0).getMedia();
-                    mAdapter = new GalleryAdapter(getActivity(), images);
-                    recyclerView.setAdapter(mAdapter);
+                if (response.body() != null) {
+                    List<DetailProducts> results = response.body().getProducts();
+                    if (!results.isEmpty()) {
+                        images = results.get(0).getMedia();
+                        mAdapter = new GalleryAdapter(getActivity(), images);
+                        recyclerView.setAdapter(mAdapter);
+                    }
                 }
             }
 
@@ -222,23 +224,25 @@ public class DetailFragmentTab extends Fragment {
             @Override
             public void onResponse(Call<DetailResponse> call, Response<DetailResponse> response) {
                 int statusCode = response.code();
-                List<DetailProducts> results = response.body().getProducts();
-                if (!results.isEmpty() || results != null) {
+                if (response.body() != null) {
+                    List<DetailProducts> results = response.body().getProducts();
+                    if (results != null) {
 
-                    lin1.setVisibility(View.VISIBLE);
-                    adapter = new RecommendationsAdapter(getActivity(), results);
-                    recyclerViewRecommendations.setAdapter(adapter);
+                        lin1.setVisibility(View.VISIBLE);
+                        adapter = new RecommendationsAdapter(getActivity(), results);
+                        recyclerViewRecommendations.setAdapter(adapter);
 
-                    titleTxt.setText(results.get(0).getTitle());
-                    editor.putString("productName", results.get(0).getTitle());
-                    editor.apply();
-                    summary.setText(results.get(0).getSummary());
-                    shortDesc.setText(Html.fromHtml(results.get(0).getShortDescription()));
-                    price.setText("$" + String.valueOf(results.get(0).getOfferData().getOffers().get(0).getPrice()));
-                    oldPrice.setText("$" + String.valueOf(results.get(0).getOfferData().getOffers().get(0).getListPrice()));
-                    avail.setText(Html.fromHtml(results.get(0).getOfferData().getOffers().get(0).getAvailabilityDescription()));
-                }else{
-                    lin1.setVisibility(View.GONE);
+                        titleTxt.setText(results.get(0).getTitle());
+                        editor.putString("productName", results.get(0).getTitle());
+                        editor.apply();
+                        summary.setText(results.get(0).getSummary());
+                        shortDesc.setText(Html.fromHtml(results.get(0).getShortDescription()));
+                        price.setText("$" + String.valueOf(results.get(0).getOfferData().getOffers().get(0).getPrice()));
+                        oldPrice.setText("$" + String.valueOf(results.get(0).getOfferData().getOffers().get(0).getListPrice()));
+                        avail.setText(Html.fromHtml(results.get(0).getOfferData().getOffers().get(0).getAvailabilityDescription()));
+                    } else {
+                        lin1.setVisibility(View.GONE);
+                    }
                 }
             }
 
@@ -256,7 +260,6 @@ public class DetailFragmentTab extends Fragment {
                 ApiClient.getClient().create(ApiInterface.class);
 
         String productID = pref.getString("productId", "");
-        System.out.println(pref.getString("productId", ""));
 
         Call<RelatedResponse> call = apiService.getRelatedProducts(productID, API_KEY, "json");
 
