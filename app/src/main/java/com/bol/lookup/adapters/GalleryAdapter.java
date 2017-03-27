@@ -17,9 +17,6 @@ import java.util.List;
 import com.bol.lookup.R;
 import com.bol.lookup.model.Media;
 
-/**
- * Created by Andrew
- */
 
 public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.MyViewHolder> {
 

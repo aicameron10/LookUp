@@ -7,9 +7,6 @@ import retrofit2.http.Path;
 import retrofit2.http.Query;
 import rx.Observable;
 
-/**
- * Created by Andrew
- */
 public interface ApiService {
     String BASE_URL = "https://api.bol.com/catalog/v4/";
 

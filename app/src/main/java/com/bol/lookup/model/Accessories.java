@@ -2,9 +2,6 @@ package com.bol.lookup.model;
 
 import com.google.gson.annotations.SerializedName;
 
-/**
- * Created by Andrew Cameron
- */
 
 public class Accessories {
 

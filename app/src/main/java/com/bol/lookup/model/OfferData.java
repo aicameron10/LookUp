@@ -4,9 +4,6 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-/**
- * Created by Andrew Cameron
- */
 
 public class OfferData {
     @SerializedName("bolCom")

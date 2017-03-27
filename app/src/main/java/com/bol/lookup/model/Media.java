@@ -4,9 +4,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
 
-/**
- * Created by Andrew
- */
+
 public class Media implements Serializable {
 
     @SerializedName("type")

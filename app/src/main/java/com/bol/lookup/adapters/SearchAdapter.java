@@ -20,9 +20,6 @@ import com.bumptech.glide.Glide;
 
 import java.util.List;
 
-/**
- * Created by Andrew Cameron
- */
 public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.MyViewHolder> {
 
     private Context mContext;
